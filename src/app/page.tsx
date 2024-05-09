@@ -7,7 +7,6 @@ interface POST {
   rating: number;
   imdb_url: string;
 }
-export const dynamic = "force-dynamic"
 async function getData() {
   const res = await fetch('https://dummyapi.online/api/movies', {"cache": 'no-store'})
   // The return value is *not* serialized
