@@ -9,7 +9,7 @@ interface POST {
 }
 export const dynamic = "force-dynamic"
 async function getData() {
-  const res = await fetch('https://dummyapi.online/api/movies')
+  const res = await fetch('https://dummyapi.online/api/movies', {"cache": 'no-store'})
   // The return value is *not* serialized
   // You can return Date, Map, Set, etc.
  
