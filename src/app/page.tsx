@@ -1,14 +1,17 @@
 import Main from "./components/Main";
-import Nav from "./components/Nav";
+import Image from "next/image";
+import Link from 'next/link'
 
 interface POST {
   id: number;
-  movie: string;
-  rating: number;
-  imdb_url: string;
+  productCategory: string;
+  name: string;
+  description: string;
+  featuredImage: string;
+  thumbnailImage: string;
 }
 async function getData() {
-  const res = await fetch('https://dummyapi.online/api/movies', {"cache": 'no-store'})
+  const res = await fetch('https://dummyapi.online/api/products', {cache: 'no-store'})
   // The return value is *not* serialized
   // You can return Date, Map, Set, etc.
  
@@ -25,14 +28,16 @@ export default async function Home() {
   return (
     <div className="wrapper">
       <Main />
-      <Nav />
-      <div>
+      {/* <Nav /> */}
+      <div className="product-container">
       {posts.map((post: POST) => {
         return (
-          <div key={post.id}>
-            <h1><a href={post.imdb_url}>{post.movie}</a></h1>
-            <p>{post.rating}</p>
-          </div>
+          <Link href={`/${post.id}`}>
+            <div key={post.id} className="product">
+              <h1>{post.name.length > 10 ? post.name.slice(0, 15) + "..." : post.name}</h1>
+              <Image src={post.thumbnailImage} alt={post.name} width={400} height={300} />
+            </div>
+          </Link>
         )
       })}
       </div>

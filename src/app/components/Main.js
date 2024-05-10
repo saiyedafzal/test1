@@ -1,15 +1,18 @@
+import Image  from "next/image";
+import Illustration from '../../../public/Illustration.png'
 function Main() {
   return (
     <main className="main">
       <section className="section banner banner-section">
         <div className="container banner-column">
-          <img
+          {/* <img
             className="banner-image"
             src="./Illustration.png"
             alt="Illustration"
             width="640px"
             height="640px"
-          />
+          /> */}
+          <Image className="banner-image" src={Illustration} alt="afzal" priority />
           <div className="banner-inner">
             <h1 className="heading-xl">
               All Your Files in One Secure Location.
