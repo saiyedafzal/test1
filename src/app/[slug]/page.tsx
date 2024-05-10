@@ -13,7 +13,7 @@ async function getData(id: number | null): Promise<POST> {
   if (!id) {
     throw new Error("Failed to fetch data");
   }
-  const res = await fetch(`https://dummyapi.online/api/products/${id}`, {cache: "no-store"});
+  const res = await fetch(`https://dummyapi.online/api/products/${id}`);
   // The return value is *not* serialized
   // You can return Date, Map, Set, etc.
 
