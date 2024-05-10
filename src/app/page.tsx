@@ -11,7 +11,7 @@ interface POST {
   thumbnailImage: string;
 }
 async function getData() {
-  const res = await fetch('https://dummyapi.online/api/products', {cache: 'no-store'})
+  const res = await fetch('https://dummyapi.online/api/products')
   // The return value is *not* serialized
   // You can return Date, Map, Set, etc.
  
